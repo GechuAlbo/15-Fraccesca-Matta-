@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mis XV - Franchu</title>
+    <style>
+        /* Reset y Estilos Base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #e2e5e9;
+            overflow-x: hidden;
+            color: #1b2e4b;
+        }
+
+        /* Contenedor del Fondo Fijo y Efecto Parallax/Loop */
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('fondo 1.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* Capa de Estrellas Animadas (Destellos en 45°) */
+        .sparkle-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            clip-path: polygon(50% 0%, 63% 37%, 100% 50%, 63% 63%, 50% 100%, 37% 63%, 0% 50%, 37% 37%);
+            transform: rotate(45deg) scale(0);
+            animation: twinkle 4s infinite ease-in-out;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Posiciones aleatorias y tiempos de animación para los destellos loop */
+        .sparkle:nth-child(1) { top: 15%; left: 20%; animation-delay: 0s; width: 18px; height: 18px; }
+        .sparkle:nth-child(2) { top: 35%; left: 75%; animation-delay: 1.5s; width: 14px; height: 14px; }
+        .sparkle:nth-child(3) { top: 55%; left: 15%; animation-delay: 0.8s; width: 22px; height: 22px; }
+        .sparkle:nth-child(4) { top: 75%; left: 80%; animation-delay: 2.3s; width: 16px; height: 16px; }
+        .sparkle:nth-child(5) { top: 25%; left: 60%; animation-delay: 3.1s; width: 12px; height: 12px; }
+        .sparkle:nth-child(6) { top: 85%; left: 30%; animation-delay: 1.2s; width: 20px; height: 20px; }
+        .sparkle:nth-child(7) { top: 45%; left: 45%; animation-delay: 2.7s; width: 15px; height: 15px; }
+        .sparkle:nth-child(8) { top: 65%; left: 65%; animation-delay: 0.4s; width: 18px; height: 18px; }
+
+        @keyframes twinkle {
+            0%, 100% { transform: rotate(45deg) scale(0); opacity: 0; }
+            50% { transform: rotate(45deg) scale(1); opacity: 1; filter: drop-shadow(0 0 6px #fff); }
+        }
+
+        /* Estructura de la Invitación Móvil */
+        .main-wrapper {
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+            position: relative;
+            padding-bottom: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Secciones */
+        section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 40px 24px;
+            position: relative;
+        }
+
+        /* Sección Portada Específica */
+        .section-portada {
+            padding-top: 60px;
+            padding-bottom: 40px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .disco-bg-top {
+            position: absolute;
+            top: 20px;
+            width: 90%;
+            max-width: 380px;
+            opacity: 0.25;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .portada-img {
+            width: 118%; /* Zoom saliendo de los límites del teléfono */
+            max-width: none;
+            margin-left: -9%; /* Centrado del desborde */
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 4px 10px rgba(27, 46, 75, 0.15));
+        }
+
+        /* Fondos de Disco Adicionales en el scroll */
+        .disco-decor {
+            position: absolute;
+            width: 60%;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .disco-left { left: -20%; top: 25%; }
+        .disco-right { right: -20%; top: 65%; }
+
+        /* Imágenes de Texto SVG */
+        .texto-svg {
+            width: 100%;
+            max-width: 340px;
+            height: auto;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Divisores de Estrella grande */
+        .divider-star {
+            width: 28px;
+            height: auto;
+            margin: 20px 0;
+            opacity: 0.85;
+            position: relative;
+            z-index: 2;
+            animation: pulse-star 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse-star {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.15); opacity: 1; }
+        }
+
+        /* Botones de Cápsula Modernos */
+        .btn-capsule {
+            display: inline-block;
+            width: 85%;
+            max-width: 290px;
+            padding: 15px 24px;
+            background-color: #1b2e4b; /* Color azul profundo de los textos */
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1.5px;
+            border-radius: 50px; /* Forma de Cápsula completa */
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 6px 20px rgba(27, 46, 75, 0.35), 
+                        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            outline: none;
+            position: relative;
+            z-index: 3;
+            margin-bottom: 15px;
+        }
+
+        .btn-capsule:active {
+            transform: scale(0.97);
+            box-shadow: 0 3px 10px rgba(27, 46, 75, 0.4);
+            background-color: #122036;
+        }
+
+        /* Estilo para feedback de copiado exitoso */
+        .btn-copied {
+            background-color: #2c4a3e !important;
+            box-shadow: 0 6px 20px rgba(44, 74, 62, 0.3) !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenedor del fondo fijo -->
+    <div class="bg-container"></div>
+
+    <!-- Capa de destellos animados en bucle -->
+    <div class="sparkle-overlay">
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+    </div>
+
+    <!-- Envoltura principal de la web interactiva móvil -->
+    <div class="main-wrapper">
+
+        <!-- SECCIÓN 1: Portada con zoom y rebasamiento -->
+        <section class="section-portada">
+            <img src="DiscoB.svg" class="disco-bg-top" alt="Decoración Disco">
+            <img src="15 portada.svg" class="portada-img" alt="Mis XV Franchu">
+        </section>
+
+        <!-- Elementos decorativos flotantes de fondo para simular profundidad -->
+        <img src="DiscoB.svg" class="disco-decor disco-left" alt="Decoración">
+        <img src="DiscoB.svg" class="disco-decor disco-right" alt="Decoración">
+
+        <!-- SECCIÓN 2: Fecha, Lugar y Cómo Llegar -->
+        <section>
+            <img src="Texto Fecha y Lugar.svg" class="texto-svg" alt="Sábado 15 de Agosto 21:00 hs - Salon del Colegio de Abogados">
+            <a href="https://maps.app.goo.gl/zAip8KaJCdqkeMkL6" target="_blank" class="btn-capsule">Cómo Llegar</a>
+        </section>
+
+        <!-- SECCIÓN 3: Confirmación de Asistencia -->
+        <section>
+            <img src="Texto Confirmar.svg" class="texto-svg" alt="Por favor confirma tu asistencia hasta el 15 de Julio">
+            <a href="https://api.whatsapp.com/send?phone=543874411122&text=CONFIRMO%20ASISTENCIA%2015%20FRANCHU" target="_blank" class="btn-capsule">Confirmar Asistencia</a>
+        </section>
+
+        <!-- Divisor 1 -->
+        <img src="Estrella grande.svg" class="divider-star" alt="Estrella">
+
+        <!-- SECCIÓN 4: Código de Vestimenta -->
+        <section>
+            <img src="Texto DressCode.svg" class="texto-svg" alt="Dress Code - Elegante Sport">
+        </section>
+
+        <!-- SECCIÓN 5: Regalo / Alias Copiado -->
+        <section>
+            <img src="Texto Regalo.svg" class="texto-svg" alt="Mesa de Regalos / Alias">
+            <!-- Botón interactivo para copiar el alias temporalmente -->
+            <button id="btn-alias" class="btn-capsule" onclick="copiarAlias()">Regalo / Copiar Alias</button>
+        </section>
+
+        <!-- Divisor 2 -->
+        <img src="Estrella grande.svg" class="divider-star" alt="Estrella">
+
+        <!-- SECCIÓN 6: Cierre de Invitación -->
+        <section style="padding-bottom: 40px;">
+            <img src="Texto Final.svg" class="texto-svg" alt="Nos vemos para celebrar juntos - Fran">
+        </section>
+
+    </div>
+
+    <!-- Script Interactivo para Copiar el Alias en Teléfonos -->
+    <script>
+        function copiarAlias() {
+            const aliasTexto = "alias.prueba";
+            const boton = document.getElementById("btn-alias");
+            
+            // API Moderna de Portapapeles
+            navigator.clipboard.writeText(aliasTexto).then(() => {
+                const textoOriginal = boton.innerText;
+                boton.innerText = "¡Alias Copiado!";
+                boton.classList.add("btn-copied");
+                
+                // Retorna al estado normal tras 2.5 segundos
+                setTimeout(() => {
+                    boton.innerText = textoOriginal;
+                    boton.classList.remove("btn-copied");
+                }, 2500);
+            }).catch(err => {
+                // Fallback para navegadores antiguos de celular
+                const el = document.createElement('textarea');
+                el.value = aliasTexto;
+                el.setAttribute('readonly', '');
+                el.style.position = 'absolute';
+                el.style.left = '-9999px';
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand('copy');
+                document.body.removeChild(el);
+                
+                const textoOriginal = boton.innerText;
+                boton.innerText = "¡Alias Copiado!";
+                boton.classList.add("btn-copied");
+                setTimeout(() => {
+                    boton.innerText = textoOriginal;
+                    boton.classList.remove("btn-copied");
+                }, 2500);
+            });
+        }
+    </script>
+</body>
+</html>
