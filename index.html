@@ -17,7 +17,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #1b2e4b; /* Fondo oscuro de respaldo */
+            background-color: #1b2e4b;
             overflow-x: hidden;
             color: #1b2e4b;
         }
@@ -38,7 +38,7 @@
         }
 
         /* ==========================================================================
-           2. ESTRELLAS DESTELLANTES (Puntas largas y mimetización corregida)
+           2. CONSTELACIÓN DE ESTRELLAS (Intensificadas en zona alta y media)
            ========================================================================== */
         .sparkle-overlay {
             position: fixed;
@@ -56,29 +56,53 @@
             background: #ffffff;
             clip-path: polygon(50% 0%, 53% 47%, 100% 50%, 53% 53%, 50% 100%, 47% 53%, 0% 50%, 47% 47%);
             transform: rotate(45deg) scale(0);
-            animation: twinkle 4s infinite ease-in-out;
-            mix-blend-mode: difference; /* Para que resalten sobre el fondo claro */
+            animation: twinkle 3.8s infinite ease-in-out;
+            mix-blend-mode: difference;
         }
 
-        /* Posiciones aleatorias de las 18 estrellas */
-        .sparkle:nth-child(1)  { top: 7%;   left: 15%;  animation-delay: 0.0s; width: 35px; height: 35px; }
-        .sparkle:nth-child(2)  { top: 28%;  left: 82%;  animation-delay: 1.5s; width: 25px; height: 25px; }
-        .sparkle:nth-child(3)  { top: 45%;  left: 8%;   animation-delay: 0.7s; width: 45px; height: 45px; }
-        .sparkle:nth-child(4)  { top: 68%;  left: 88%;  animation-delay: 2.2s; width: 30px; height: 30px; }
-        .sparkle:nth-child(5)  { top: 18%;  left: 62%;  animation-delay: 3.1s; width: 22px; height: 22px; }
-        .sparkle:nth-child(6)  { top: 88%;  left: 18%;  animation-delay: 1.1s; width: 38px; height: 38px; }
-        .sparkle:nth-child(7)  { top: 35%;  left: 42%;  animation-delay: 2.6s; width: 28px; height: 28px; }
-        .sparkle:nth-child(8)  { top: 58%;  left: 74%;  animation-delay: 0.4s; width: 32px; height: 32px; }
-        .sparkle:nth-child(9)  { top: 22%;  left: 12%;  animation-delay: 1.9s; width: 26px; height: 26px; }
-        .sparkle:nth-child(10) { top: 78%;  left: 48%;  animation-delay: 0.2s; width: 40px; height: 40px; }
-        .sparkle:nth-child(11) { top: 5%;   left: 70%;  animation-delay: 3.4s; width: 24px; height: 24px; }
-        .sparkle:nth-child(12) { top: 52%;  left: 92%;  animation-delay: 1.3s; width: 34px; height: 34px; }
-        .sparkle:nth-child(13) { top: 92%;  left: 68%;  animation-delay: 2.8s; width: 28px; height: 28px; }
-        .sparkle:nth-child(14) { top: 40%;  left: 25%;  animation-delay: 0.5s; width: 32px; height: 32px; }
-        .sparkle:nth-child(15) { top: 64%;  left: 30%;  animation-delay: 1.7s; width: 22px; height: 22px; }
-        .sparkle:nth-child(16) { top: 14%;  left: 40%;  animation-delay: 2.9s; width: 36px; height: 36px; }
-        .sparkle:nth-child(17) { top: 74%;  left: 5%;   animation-delay: 0.8s; width: 28px; height: 28px; }
-        .sparkle:nth-child(18) { top: 84%;  left: 90%;  animation-delay: 2.1s; width: 42px; height: 42px; }
+        /* Ráfaga de destellos: Zona Portada (0% - 35% de altura) */
+        .sparkle:nth-child(1)  { top: 4%;   left: 8%;   animation-delay: 0.0s; width: 32px; height: 32px; }
+        .sparkle:nth-child(2)  { top: 7%;   left: 78%;  animation-delay: 1.2s; width: 24px; height: 24px; }
+        .sparkle:nth-child(3)  { top: 12%;  left: 25%;  animation-delay: 0.5s; width: 38px; height: 38px; }
+        .sparkle:nth-child(4)  { top: 15%;  left: 88%;  animation-delay: 2.0s; width: 28px; height: 28px; }
+        .sparkle:nth-child(5)  { top: 19%;  left: 50%;  animation-delay: 0.8s; width: 35px; height: 35px; }
+        .sparkle:nth-child(6)  { top: 22%;  left: 14%;  animation-delay: 2.7s; width: 22px; height: 22px; }
+        .sparkle:nth-child(7)  { top: 25%;  left: 65%;  animation-delay: 1.5s; width: 42px; height: 42px; }
+        .sparkle:nth-child(8)  { top: 29%;  left: 33%;  animation-delay: 3.1s; width: 26px; height: 26px; }
+        .sparkle:nth-child(9)  { top: 32%;  left: 80%;  animation-delay: 0.3s; width: 30px; height: 30px; }
+        .sparkle:nth-child(10) { top: 35%;  left: 12%;  animation-delay: 1.9s; width: 36px; height: 36px; }
+
+        /* Ráfaga de destellos: Zona Media / Fecha y Confirmación (36% - 65% de altura) */
+        .sparkle:nth-child(11) { top: 38%;  left: 45%;  animation-delay: 2.4s; width: 28px; height: 28px; }
+        .sparkle:nth-child(12) { top: 41%;  left: 88%;  animation-delay: 0.7s; width: 34px; height: 34px; }
+        .sparkle:nth-child(13) { top: 44%;  left: 20%;  animation-delay: 1.6s; width: 40px; height: 40px; }
+        .sparkle:nth-child(14) { top: 47%;  left: 60%;  animation-delay: 3.3s; width: 25px; height: 25px; }
+        .sparkle:nth-child(15) { top: 50%;  left: 5%;   animation-delay: 0.2s; width: 32px; height: 32px; }
+        .sparkle:nth-child(16) { top: 53%;  left: 76%;  animation-delay: 2.1s; width: 45px; height: 45px; }
+        .sparkle:nth-child(17) { top: 56%;  left: 30%;  animation-delay: 1.1s; width: 22px; height: 22px; }
+        .sparkle:nth-child(18) { top: 59%;  left: 92%;  animation-delay: 2.9s; width: 36px; height: 36px; }
+        .sparkle:nth-child(19) { top: 62%;  left: 15%;  animation-delay: 0.4s; width: 28px; height: 28px; }
+        .sparkle:nth-child(20) { top: 65%;  left: 52%;  animation-delay: 1.8s; width: 38px; height: 38px; }
+
+        /* Copias adicionales para densificar las zonas clave (Variación de tiempos) */
+        .sparkle:nth-child(21) { top: 6%;   left: 40%;  animation-delay: 2.2s; width: 26px; height: 26px; }
+        .sparkle:nth-child(22) { top: 11%;  left: 66%;  animation-delay: 0.9s; width: 32px; height: 32px; }
+        .sparkle:nth-child(23) { top: 16%;  left: 12%;  animation-delay: 3.5s; width: 24px; height: 24px; }
+        .sparkle:nth-child(24) { top: 24%;  left: 85%;  animation-delay: 1.4s; width: 35px; height: 35px; }
+        .sparkle:nth-child(25) { top: 30%;  left: 55%;  animation-delay: 2.6s; width: 28px; height: 28px; }
+        .sparkle:nth-child(26) { top: 37%;  left: 28%;  animation-delay: 0.1s; width: 33px; height: 33px; }
+        .sparkle:nth-child(27) { top: 43%;  left: 72%;  animation-delay: 1.7s; width: 22px; height: 22px; }
+        .sparkle:nth-child(28) { top: 49%;  left: 42%;  animation-delay: 3.0s; width: 36px; height: 36px; }
+        .sparkle:nth-child(29) { top: 55%;  left: 84%;  animation-delay: 0.6s; width: 30px; height: 30px; }
+        .sparkle:nth-child(30) { top: 61%;  left: 68%;  animation-delay: 2.3s; width: 25px; height: 25px; }
+
+        /* Zona Inferior / Cierre (66% - 100% de altura) */
+        .sparkle:nth-child(31) { top: 70%;  left: 28%;  animation-delay: 1.3s; width: 26px; height: 26px; }
+        .sparkle:nth-child(32) { top: 75%;  left: 82%;  animation-delay: 3.2s; width: 34px; height: 34px; }
+        .sparkle:nth-child(33) { top: 80%;  left: 8%;   animation-delay: 0.5s; width: 22px; height: 22px; }
+        .sparkle:nth-child(34) { top: 85%;  left: 64%;  animation-delay: 2.5s; width: 38px; height: 38px; }
+        .sparkle:nth-child(35) { top: 90%;  left: 40%;  animation-delay: 1.1s; width: 28px; height: 28px; }
+        .sparkle:nth-child(36) { top: 94%;  left: 86%;  animation-delay: 2.8s; width: 35px; height: 35px; }
 
         @keyframes twinkle {
             0%, 100% { transform: rotate(45deg) scale(0); opacity: 0; }
@@ -86,7 +110,7 @@
         }
 
         /* ==========================================================================
-           3. ESTRUCTURA DE LA INVITACIÓN Y CENTRADO SIMÉTRICO DE PORTADA
+           3. ESTRUCTURA DE LA INVITACIÓN Y CORTE DE PORTADA ESTILO EJEMPLO
            ========================================================================== */
         .main-wrapper {
             width: 100%;
@@ -111,11 +135,11 @@
         }
 
         .section-portada {
-            padding-top: 60px;
-            padding-bottom: 40px;
+            padding-top: 40px;
+            padding-bottom: 20px;
             overflow: hidden;
             width: 100%;
-            min-height: 280px;
+            min-height: 380px;
         }
 
         .disco-bg-top {
@@ -128,17 +152,17 @@
             pointer-events: none;
         }
 
-        /* Centrado simétrico puro: se agranda un 10% más y se recorta igual en ambos extremos */
+        /* Encuadre de portada idéntico a la referencia: Colosal, alineado a la izquierda y cortando a la derecha */
         .portada-img {
-            width: 148%; 
+            width: 160%; /* Tamaño aumentado para un impacto visual imponente */
             max-width: none;
             position: relative;
             z-index: 2;
-            filter: drop-shadow(0 4px 10px rgba(27, 46, 75, 0.15));
+            filter: drop-shadow(0 4px 12px rgba(27, 46, 75, 0.18));
             display: block;
-            margin-left: -24%; /* El 48% sobrante del ancho se divide equitativamente a los lados */
+            margin-left: -12%; /* Empuja sutilmente hacia la izquierda el inicio del vector */
             left: 0;
-            transform: none; 
+            transform: none;
         }
 
         .disco-decor {
@@ -214,19 +238,27 @@
 </head>
 <body>
 
+    <!-- Capa de fondo fija -->
     <div class="bg-container"></div>
 
+    <!-- Capa de estrellas (36 elementos activos para el efecto denso) -->
     <div class="sparkle-overlay">
-        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+        <!-- Bloque Portada -->
+        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+        <!-- Bloque Medio -->
+        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+        <!-- Refuerzos de densidad -->
+        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+        <!-- Bloque Inferior -->
+        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
     </div>
 
     <div class="main-wrapper">
 
+        <!-- SECCIÓN 1: PORTADA ESTILO DE REFERENCIA -->
         <section class="section-portada">
             <img src="DiscoB.svg" class="disco-bg-top" alt="Decoración Disco">
             <img src="15%20portada.svg" class="portada-img" alt="Mis XV Franchu">
@@ -235,11 +267,13 @@
         <img src="DiscoB.svg" class="disco-decor disco-left" alt="Decoración">
         <img src="DiscoB.svg" class="disco-decor disco-right" alt="Decoración">
 
+        <!-- SECCIÓN 2 -->
         <section>
             <img src="Texto%20Fecha%20y%20Lugar.svg" class="texto-svg" alt="Fecha y Lugar">
             <a href="https://maps.google.com" target="_blank" class="btn-capsule">Cómo Llegar</a>
         </section>
 
+        <!-- SECCIÓN 3 -->
         <section>
             <img src="Texto%20Confirmar.svg" class="texto-svg" alt="Confirmar">
             <a href="https://api.whatsapp.com/send?phone=543874411122&text=CONFIRMO%20ASISTENCIA%2015%20FRANCHU" target="_blank" class="btn-capsule">Confirmar Asistencia</a>
@@ -247,10 +281,12 @@
 
         <img src="Estrella%20grande.svg" class="divider-star" alt="Estrella">
 
+        <!-- SECCIÓN 4 -->
         <section>
             <img src="Texto%20DressCode.svg" class="texto-svg" alt="Dress Code">
         </section>
 
+        <!-- SECCIÓN 5 -->
         <section>
             <img src="Texto%20Regalo.svg" class="texto-svg" alt="Regalo">
             <button id="btn-alias" class="btn-capsule" onclick="copiarAlias()">Regalo / Copiar Alias</button>
@@ -258,6 +294,7 @@
 
         <img src="Estrella%20grande.svg" class="divider-star" alt="Estrella">
 
+        <!-- SECCIÓN 6 -->
         <section style="padding-bottom: 40px;">
             <img src="Texto%20Final.svg" class="texto-svg" alt="Final">
         </section>
