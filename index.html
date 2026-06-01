@@ -35,7 +35,7 @@
             pointer-events: none;
         }
 
-        /* Capa de Estrellas Animadas - Optimizada para Fondos Claros */
+        /* Capa de Estrellas Animadas Numéricas y Aleatorias */
         .sparkle-overlay {
             position: fixed;
             top: 0;
@@ -50,31 +50,40 @@
         .sparkle {
             position: absolute;
             background: #ffffff;
-            clip-path: polygon(50% 0%, 63% 37%, 100% 50%, 63% 63%, 50% 100%, 37% 63%, 0% 50%, 37% 37%);
+            /* Modificado: Polígono ultra-estilizado para puntas extremadamente largas y delgadas */
+            clip-path: polygon(50% 0%, 53% 47%, 100% 50%, 53% 53%, 50% 100%, 47% 53%, 0% 50%, 47% 47%);
             transform: rotate(45deg) scale(0);
-            animation: twinkle 3.5s infinite ease-in-out;
-            /* Sombra base inicial para dar volumen sobre el blanco */
-            filter: drop-shadow(0 0 2px rgba(27, 46, 75, 0.25));
+            animation: twinkle 4s infinite ease-in-out;
+            filter: drop-shadow(0 0 2px rgba(27, 46, 75, 0.3));
         }
 
-        /* Tamaños más grandes y posiciones estratégicas */
-        .sparkle:nth-child(1) { top: 12%; left: 22%; animation-delay: 0s; width: 26px; height: 26px; }
-        .sparkle:nth-child(2) { top: 32%; left: 78%; animation-delay: 1.2s; width: 22px; height: 22px; }
-        .sparkle:nth-child(3) { top: 48%; left: 12%; animation-delay: 0.6s; width: 32px; height: 32px; }
-        .sparkle:nth-child(4) { top: 72%; left: 84%; animation-delay: 1.8s; width: 24px; height: 24px; }
-        .sparkle:nth-child(5) { top: 20%; left: 65%; animation-delay: 2.4s; width: 20px; height: 20px; }
-        .sparkle:nth-child(6) { top: 82%; left: 25%; animation-delay: 0.9s; width: 28px; height: 28px; }
-        .sparkle:nth-child(7) { top: 38%; left: 48%; animation-delay: 2.1s; width: 24px; height: 24px; }
-        .sparkle:nth-child(8) { top: 60%; left: 70%; animation-delay: 0.3s; width: 26px; height: 26px; }
+        /* Distribución masiva y aleatoria (18 estrellas con variaciones críticas de escala y tiempos) */
+        .sparkle:nth-child(1)  { top: 7%;   left: 15%;  animation-delay: 0.0s; width: 35px; height: 35px; }
+        .sparkle:nth-child(2)  { top: 28%;  left: 82%;  animation-delay: 1.5s; width: 25px; height: 25px; }
+        .sparkle:nth-child(3)  { top: 45%;  left: 8%;   animation-delay: 0.7s; width: 45px; height: 45px; }
+        .sparkle:nth-child(4)  { top: 68%;  left: 88%;  animation-delay: 2.2s; width: 30px; height: 30px; }
+        .sparkle:nth-child(5)  { top: 18%;  left: 62%;  animation-delay: 3.1s; width: 22px; height: 22px; }
+        .sparkle:nth-child(6)  { top: 88%;  left: 18%;  animation-delay: 1.1s; width: 38px; height: 38px; }
+        .sparkle:nth-child(7)  { top: 35%;  left: 42%;  animation-delay: 2.6s; width: 28px; height: 28px; }
+        .sparkle:nth-child(8)  { top: 58%;  left: 74%;  animation-delay: 0.4s; width: 32px; height: 32px; }
+        .sparkle:nth-child(9)  { top: 22%;  left: 12%;  animation-delay: 1.9s; width: 26px; height: 26px; }
+        .sparkle:nth-child(10) { top: 78%;  left: 48%;  animation-delay: 0.2s; width: 40px; height: 40px; }
+        .sparkle:nth-child(11) { top: 5%;   left: 70%;  animation-delay: 3.4s; width: 24px; height: 24px; }
+        .sparkle:nth-child(12) { top: 52%;  left: 92%;  animation-delay: 1.3s; width: 34px; height: 34px; }
+        .sparkle:nth-child(13) { top: 92%;  left: 68%;  animation-delay: 2.8s; width: 28px; height: 28px; }
+        .sparkle:nth-child(14) { top: 40%;  left: 25%;  animation-delay: 0.5s; width: 32px; height: 32px; }
+        .sparkle:nth-child(15) { top: 64%;  left: 30%;  animation-delay: 1.7s; width: 22px; height: 22px; }
+        .sparkle:nth-child(16) { top: 14%;  left: 40%;  animation-delay: 2.9s; width: 36px; height: 36px; }
+        .sparkle:nth-child(17) { top: 74%;  left: 5%;   animation-delay: 0.8s; width: 28px; height: 28px; }
+        .sparkle:nth-child(18) { top: 84%;  left: 90%;  animation-delay: 2.1s; width: 42px; height: 42px; }
 
-        /* Animación con contraste de color corregido */
+        /* Animación con mayor rango de expansión para resaltar las puntas largas */
         @keyframes twinkle {
             0%, 100% { transform: rotate(45deg) scale(0); opacity: 0; }
             50% { 
-                transform: rotate(45deg) scale(1.8); /* Escala aumentada de 1 a 1.8 */
+                transform: rotate(45deg) scale(2.2); /* Mayor expansión */
                 opacity: 1; 
-                /* Doble resplandor: un halo crema brillante y un delineado azul marino de contraste */
-                filter: drop-shadow(0 0 6px #fff5cc) drop-shadow(0 0 10px rgba(27, 46, 75, 0.45)); 
+                filter: drop-shadow(0 0 8px #fff5cc) drop-shadow(0 0 12px rgba(27, 46, 75, 0.55)); 
             }
         }
 
@@ -210,11 +219,20 @@
         <div class="sparkle"></div>
         <div class="sparkle"></div>
         <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
     </div>
 
     <div class="main-wrapper">
 
-        <!-- SECCIÓN 1 -->
         <section class="section-portada">
             <img src="DiscoB.svg" class="disco-bg-top" alt="Decoración Disco">
             <img src="15%20portada.svg" class="portada-img" alt="Mis XV Franchu">
@@ -223,13 +241,11 @@
         <img src="DiscoB.svg" class="disco-decor disco-left" alt="Decoración">
         <img src="DiscoB.svg" class="disco-decor disco-right" alt="Decoración">
 
-        <!-- SECCIÓN 2 -->
         <section>
             <img src="Texto%20Fecha%20y%20Lugar.svg" class="texto-svg" alt="Fecha y Lugar">
             <a href="https://maps.app.goo.gl/zAip8KaJCdqkeMkL6" target="_blank" class="btn-capsule">Cómo Llegar</a>
         </section>
 
-        <!-- SECCIÓN 3 -->
         <section>
             <img src="Texto%20Confirmar.svg" class="texto-svg" alt="Confirmar">
             <a href="https://api.whatsapp.com/send?phone=543874411122&text=CONFIRMO%20ASISTENCIA%2015%20FRANCHU" target="_blank" class="btn-capsule">Confirmar Asistencia</a>
@@ -237,12 +253,10 @@
 
         <img src="Estrella%20grande.svg" class="divider-star" alt="Estrella">
 
-        <!-- SECCIÓN 4 -->
         <section>
             <img src="Texto%20DressCode.svg" class="texto-svg" alt="Dress Code">
         </section>
 
-        <!-- SECCIÓN 5 -->
         <section>
             <img src="Texto%20Regalo.svg" class="texto-svg" alt="Regalo">
             <button id="btn-alias" class="btn-capsule" onclick="copiarAlias()">Regalo / Copiar Alias</button>
@@ -250,7 +264,6 @@
 
         <img src="Estrella%20grande.svg" class="divider-star" alt="Estrella">
 
-        <!-- SECCIÓN 6 -->
         <section style="padding-bottom: 40px;">
             <img src="Texto%20Final.svg" class="texto-svg" alt="Final">
         </section>
