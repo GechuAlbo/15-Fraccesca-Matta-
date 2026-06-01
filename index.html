@@ -60,7 +60,7 @@
             mix-blend-mode: difference;
         }
 
-        /* Ráfaga de destellos: Zona Portada (0% - 35% de altura) */
+        /* Ráfaga de destellos: Zona Portada */
         .sparkle:nth-child(1)  { top: 4%;   left: 8%;   animation-delay: 0.0s; width: 32px; height: 32px; }
         .sparkle:nth-child(2)  { top: 7%;   left: 78%;  animation-delay: 1.2s; width: 24px; height: 24px; }
         .sparkle:nth-child(3)  { top: 12%;  left: 25%;  animation-delay: 0.5s; width: 38px; height: 38px; }
@@ -72,7 +72,7 @@
         .sparkle:nth-child(9)  { top: 32%;  left: 80%;  animation-delay: 0.3s; width: 30px; height: 30px; }
         .sparkle:nth-child(10) { top: 35%;  left: 12%;  animation-delay: 1.9s; width: 36px; height: 36px; }
 
-        /* Ráfaga de destellos: Zona Media / Fecha y Confirmación (36% - 65% de altura) */
+        /* Ráfaga de destellos: Zona Media / Fecha y Confirmación */
         .sparkle:nth-child(11) { top: 38%;  left: 45%;  animation-delay: 2.4s; width: 28px; height: 28px; }
         .sparkle:nth-child(12) { top: 41%;  left: 88%;  animation-delay: 0.7s; width: 34px; height: 34px; }
         .sparkle:nth-child(13) { top: 44%;  left: 20%;  animation-delay: 1.6s; width: 40px; height: 40px; }
@@ -84,7 +84,7 @@
         .sparkle:nth-child(19) { top: 62%;  left: 15%;  animation-delay: 0.4s; width: 28px; height: 28px; }
         .sparkle:nth-child(20) { top: 65%;  left: 52%;  animation-delay: 1.8s; width: 38px; height: 38px; }
 
-        /* Copias adicionales para densificar las zonas clave (Variación de tiempos) */
+        /* Copias adicionales para densificar las zonas clave */
         .sparkle:nth-child(21) { top: 6%;   left: 40%;  animation-delay: 2.2s; width: 26px; height: 26px; }
         .sparkle:nth-child(22) { top: 11%;  left: 66%;  animation-delay: 0.9s; width: 32px; height: 32px; }
         .sparkle:nth-child(23) { top: 16%;  left: 12%;  animation-delay: 3.5s; width: 24px; height: 24px; }
@@ -96,7 +96,7 @@
         .sparkle:nth-child(29) { top: 55%;  left: 84%;  animation-delay: 0.6s; width: 30px; height: 30px; }
         .sparkle:nth-child(30) { top: 61%;  left: 68%;  animation-delay: 2.3s; width: 25px; height: 25px; }
 
-        /* Zona Inferior / Cierre (66% - 100% de altura) */
+        /* Zona Inferior */
         .sparkle:nth-child(31) { top: 70%;  left: 28%;  animation-delay: 1.3s; width: 26px; height: 26px; }
         .sparkle:nth-child(32) { top: 75%;  left: 82%;  animation-delay: 3.2s; width: 34px; height: 34px; }
         .sparkle:nth-child(33) { top: 80%;  left: 8%;   animation-delay: 0.5s; width: 22px; height: 22px; }
@@ -110,7 +110,7 @@
         }
 
         /* ==========================================================================
-           3. ESTRUCTURA DE LA INVITACIÓN Y CORTE DE PORTADA ESTILO EJEMPLO
+           3. ESTRUCTURA DE LA INVITACIÓN Y COMPRESIÓN DE ESPACIOS
            ========================================================================== */
         .main-wrapper {
             width: 100%;
@@ -130,13 +130,13 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 40px 24px;
+            padding: 30px 24px; /* Modificado: redujo el espaciado vertical global */
             position: relative;
         }
 
         .section-portada {
             padding-top: 40px;
-            padding-bottom: 20px;
+            padding-bottom: 15px;
             overflow: hidden;
             width: 100%;
             min-height: 380px;
@@ -152,17 +152,25 @@
             pointer-events: none;
         }
 
-        /* Encuadre de portada idéntico a la referencia: Colosal, alineado a la izquierda y cortando a la derecha */
+        /* Corregido: Ajuste fino levemente hacia la derecha (-10%) para encuadre ideal */
         .portada-img {
-            width: 160%; /* Tamaño aumentado para un impacto visual imponente */
+            width: 160%;
             max-width: none;
             position: relative;
             z-index: 2;
             filter: drop-shadow(0 4px 12px rgba(27, 46, 75, 0.18));
             display: block;
-            margin-left: -12%; /* Empuja sutilmente hacia la izquierda el inicio del vector */
+            margin-left: -10%; 
             left: 0;
             transform: none;
+        }
+
+        /* Ajuste quirúrgico del espacio entre Dress Code y Regalo */
+        .section-dresscode {
+            padding-bottom: 5px;
+        }
+        .section-regalo {
+            padding-top: 5px;
         }
 
         .disco-decor {
@@ -179,7 +187,7 @@
             width: 100%;
             max-width: 340px;
             height: auto;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
             position: relative;
             z-index: 2;
             display: block;
@@ -188,7 +196,7 @@
         .divider-star {
             width: 28px;
             height: auto;
-            margin: 20px 0;
+            margin: 15px 0;
             opacity: 0.85;
             position: relative;
             z-index: 2;
@@ -221,7 +229,7 @@
             outline: none;
             position: relative;
             z-index: 3;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .btn-capsule:active {
@@ -241,24 +249,20 @@
     <!-- Capa de fondo fija -->
     <div class="bg-container"></div>
 
-    <!-- Capa de estrellas (36 elementos activos para el efecto denso) -->
+    <!-- Capa de estrellas (36 elementos) -->
     <div class="sparkle-overlay">
-        <!-- Bloque Portada -->
         <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
         <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-        <!-- Bloque Medio -->
         <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
         <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-        <!-- Refuerzos de densidad -->
         <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
         <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-        <!-- Bloque Inferior -->
         <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
     </div>
 
     <div class="main-wrapper">
 
-        <!-- SECCIÓN 1: PORTADA ESTILO DE REFERENCIA -->
+        <!-- SECCIÓN 1: PORTADA -->
         <section class="section-portada">
             <img src="DiscoB.svg" class="disco-bg-top" alt="Decoración Disco">
             <img src="15%20portada.svg" class="portada-img" alt="Mis XV Franchu">
@@ -281,13 +285,13 @@
 
         <img src="Estrella%20grande.svg" class="divider-star" alt="Estrella">
 
-        <!-- SECCIÓN 4 -->
-        <section>
-            <img src="Texto%20DressCode.svg" class="texto-svg" alt="Dress Code">
+        <!-- SECCIÓN 4: DRESS CODE (Clases añadidas para ajuste de espacio) -->
+        <section class="section-dresscode">
+            <img src="Texto%20DressCode.svg" class="texto-svg" alt="Dress Code" style="margin-bottom: 0;">
         </section>
 
-        <!-- SECCIÓN 5 -->
-        <section>
+        <!-- SECCIÓN 5: REGALO (Clases añadidas para ajuste de espacio) -->
+        <section class="section-regalo">
             <img src="Texto%20Regalo.svg" class="texto-svg" alt="Regalo">
             <button id="btn-alias" class="btn-capsule" onclick="copiarAlias()">Regalo / Copiar Alias</button>
         </section>
