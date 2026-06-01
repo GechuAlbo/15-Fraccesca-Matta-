@@ -15,34 +15,34 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: transparent; /* Corregido: Transparente para que no tape el fondo fijo */
+            background: transparent;
             overflow-x: hidden;
             color: #1b2e4b;
         }
 
-        /* Contenedor del Fondo Fijo - Capa corregida */
+        /* Contenedor del Nuevo Fondo Fijo */
         .bg-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: #e2e5e9; /* El color de respaldo ahora vive aquí */
-            background-image: url('fondo 1.jpg'); /* Espacio normal compatible entre comillas */
+            background-color: #e2e5e9;
+            background-image: url('fondo 1.jpg');
             background-size: cover;
             background-position: center;
-            z-index: -1; /* Corregido de -2 a -1 para evitar que el body lo tape */
+            z-index: -1;
             pointer-events: none;
         }
 
-        /* Capa de Estrellas Animadas (Destellos en 45°) */
+        /* Capa de Estrellas Animadas (Destellos en 45° simulando loop de video) */
         .sparkle-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index: 0; /* Ajustado para que brille sobre el fondo */
+            z-index: 0;
             pointer-events: none;
             overflow: hidden;
         }
@@ -58,6 +58,7 @@
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
         }
 
+        /* Tiempos y tamaños alternados para el efecto loop */
         .sparkle:nth-child(1) { top: 15%; left: 20%; animation-delay: 0s; width: 18px; height: 18px; }
         .sparkle:nth-child(2) { top: 35%; left: 75%; animation-delay: 1.5s; width: 14px; height: 14px; }
         .sparkle:nth-child(3) { top: 55%; left: 15%; animation-delay: 0.8s; width: 22px; height: 22px; }
@@ -82,7 +83,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            z-index: 1; /* Asegura que todo el contenido esté al frente */
+            z-index: 1;
         }
 
         section {
@@ -193,10 +194,8 @@
 </head>
 <body>
 
-    <!-- Contenedor del fondo corregido -->
     <div class="bg-container"></div>
 
-    <!-- Capa de destellos -->
     <div class="sparkle-overlay">
         <div class="sparkle"></div>
         <div class="sparkle"></div>
