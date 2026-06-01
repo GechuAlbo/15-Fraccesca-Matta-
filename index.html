@@ -20,7 +20,7 @@
             color: #1b2e4b;
         }
 
-        /* Contenedor del Nuevo Fondo Fijo */
+        /* Contenedor del Fondo Fijo - Apuntando a fondofondo.jpg */
         .bg-container {
             position: fixed;
             top: 0;
@@ -28,14 +28,14 @@
             width: 100vw;
             height: 100vh;
             background-color: #e2e5e9;
-            background-image: url('fondo 1.jpg');
+            background-image: url('fondofondo.jpg'); /* Ruta corregida sin espacios */
             background-size: cover;
             background-position: center;
             z-index: -1;
             pointer-events: none;
         }
 
-        /* Capa de Estrellas Animadas (Destellos en 45° simulando loop de video) */
+        /* Capa de Estrellas Animadas */
         .sparkle-overlay {
             position: fixed;
             top: 0;
@@ -58,7 +58,6 @@
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
         }
 
-        /* Tiempos y tamaños alternados para el efecto loop */
         .sparkle:nth-child(1) { top: 15%; left: 20%; animation-delay: 0s; width: 18px; height: 18px; }
         .sparkle:nth-child(2) { top: 35%; left: 75%; animation-delay: 1.5s; width: 14px; height: 14px; }
         .sparkle:nth-child(3) { top: 55%; left: 15%; animation-delay: 0.8s; width: 22px; height: 22px; }
