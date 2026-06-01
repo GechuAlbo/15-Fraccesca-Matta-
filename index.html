@@ -86,7 +86,7 @@
         }
 
         /* ==========================================================================
-           3. ESTRUCTURA DE LA INVITACIÓN Y CENTRADO DE PORTADA
+           3. ESTRUCTURA DE LA INVITACIÓN Y CENTRADO SIMÉTRICO DE PORTADA
            ========================================================================== */
         .main-wrapper {
             width: 100%;
@@ -128,16 +128,17 @@
             pointer-events: none;
         }
 
-        /* Centrado simétrico de la portada (Desborda equitativamente y clava la "H" al medio) */
+        /* Centrado simétrico puro: se agranda un 10% más y se recorta igual en ambos extremos */
         .portada-img {
-            width: 135%; 
+            width: 148%; 
             max-width: none;
             position: relative;
             z-index: 2;
             filter: drop-shadow(0 4px 10px rgba(27, 46, 75, 0.15));
             display: block;
-            left: 50%;
-            transform: translateX(-51.5%); 
+            margin-left: -24%; /* El 48% sobrante del ancho se divide equitativamente a los lados */
+            left: 0;
+            transform: none; 
         }
 
         .disco-decor {
@@ -213,10 +214,8 @@
 </head>
 <body>
 
-    <!-- Capa de fondo fija -->
     <div class="bg-container"></div>
 
-    <!-- Capa de estrellas -->
     <div class="sparkle-overlay">
         <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
         <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
@@ -228,7 +227,6 @@
 
     <div class="main-wrapper">
 
-        <!-- SECCIÓN 1 -->
         <section class="section-portada">
             <img src="DiscoB.svg" class="disco-bg-top" alt="Decoración Disco">
             <img src="15%20portada.svg" class="portada-img" alt="Mis XV Franchu">
@@ -237,13 +235,11 @@
         <img src="DiscoB.svg" class="disco-decor disco-left" alt="Decoración">
         <img src="DiscoB.svg" class="disco-decor disco-right" alt="Decoración">
 
-        <!-- SECCIÓN 2 -->
         <section>
             <img src="Texto%20Fecha%20y%20Lugar.svg" class="texto-svg" alt="Fecha y Lugar">
             <a href="https://maps.google.com" target="_blank" class="btn-capsule">Cómo Llegar</a>
         </section>
 
-        <!-- SECCIÓN 3 -->
         <section>
             <img src="Texto%20Confirmar.svg" class="texto-svg" alt="Confirmar">
             <a href="https://api.whatsapp.com/send?phone=543874411122&text=CONFIRMO%20ASISTENCIA%2015%20FRANCHU" target="_blank" class="btn-capsule">Confirmar Asistencia</a>
@@ -251,12 +247,10 @@
 
         <img src="Estrella%20grande.svg" class="divider-star" alt="Estrella">
 
-        <!-- SECCIÓN 4 -->
         <section>
             <img src="Texto%20DressCode.svg" class="texto-svg" alt="Dress Code">
         </section>
 
-        <!-- SECCIÓN 5 -->
         <section>
             <img src="Texto%20Regalo.svg" class="texto-svg" alt="Regalo">
             <button id="btn-alias" class="btn-capsule" onclick="copiarAlias()">Regalo / Copiar Alias</button>
@@ -264,7 +258,6 @@
 
         <img src="Estrella%20grande.svg" class="divider-star" alt="Estrella">
 
-        <!-- SECCIÓN 6 -->
         <section style="padding-bottom: 40px;">
             <img src="Texto%20Final.svg" class="texto-svg" alt="Final">
         </section>
