@@ -6,7 +6,7 @@
     <title>Mis XV - Franchu</title>
     <style>
         /* ==========================================================================
-           1. RESET, ESTILOS BASE Y CAPAS DE FONDO
+           1. RESET Y CAPAS DE FONDO
            ========================================================================== */
         * {
             box-sizing: border-box;
@@ -17,19 +17,18 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #1b2e4b; /* Color oscuro de respaldo para evitar el pantallazo blanco */
+            background-color: #1b2e4b; /* Fondo oscuro de respaldo */
             overflow-x: hidden;
             color: #1b2e4b;
         }
 
-        /* Contenedor del Fondo Fijo - Estructura reforzada */
         .bg-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: #e2e5e9; /* Gris claro base */
+            background-color: #e2e5e9;
             background-image: url('fondofondo.jpg');
             background-size: cover;
             background-position: center;
@@ -39,7 +38,7 @@
         }
 
         /* ==========================================================================
-           2. CAPA DE ESTRELLAS DESTELLANTES (Visibles en fondos claros)
+           2. ESTRELLAS DESTELLANTES (Puntas largas y mimetización corregida)
            ========================================================================== */
         .sparkle-overlay {
             position: fixed;
@@ -58,11 +57,10 @@
             clip-path: polygon(50% 0%, 53% 47%, 100% 50%, 53% 53%, 50% 100%, 47% 53%, 0% 50%, 47% 47%);
             transform: rotate(45deg) scale(0);
             animation: twinkle 4s infinite ease-in-out;
-            /* Inversión de color inteligente para que contrasten sobre el fondo claro */
-            mix-blend-mode: difference; 
+            mix-blend-mode: difference; /* Para que resalten sobre el fondo claro */
         }
 
-        /* Posiciones aleatorias */
+        /* Posiciones aleatorias de las 18 estrellas */
         .sparkle:nth-child(1)  { top: 7%;   left: 15%;  animation-delay: 0.0s; width: 35px; height: 35px; }
         .sparkle:nth-child(2)  { top: 28%;  left: 82%;  animation-delay: 1.5s; width: 25px; height: 25px; }
         .sparkle:nth-child(3)  { top: 45%;  left: 8%;   animation-delay: 0.7s; width: 45px; height: 45px; }
@@ -88,7 +86,7 @@
         }
 
         /* ==========================================================================
-           3. ESTRUCTURA Y COMPONENTES VISUALES DE LA INVITACIÓN
+           3. ESTRUCTURA DE LA INVITACIÓN Y CENTRADO DE PORTADA
            ========================================================================== */
         .main-wrapper {
             width: 100%;
@@ -117,7 +115,7 @@
             padding-bottom: 40px;
             overflow: hidden;
             width: 100%;
-            min-height: 280px; /* Evita colapso visual si tarda en cargar */
+            min-height: 280px;
         }
 
         .disco-bg-top {
@@ -130,16 +128,16 @@
             pointer-events: none;
         }
 
-        /* Modificado: Imagen un 15% más grande y desplazada a la derecha */
+        /* Centrado simétrico de la portada (Desborda equitativamente y clava la "H" al medio) */
         .portada-img {
             width: 135%; 
             max-width: none;
-            margin-left: -9%;
             position: relative;
             z-index: 2;
             filter: drop-shadow(0 4px 10px rgba(27, 46, 75, 0.15));
-            transform: translateX(100px); 
             display: block;
+            left: 50%;
+            transform: translateX(-51.5%); 
         }
 
         .disco-decor {
@@ -215,15 +213,22 @@
 </head>
 <body>
 
+    <!-- Capa de fondo fija -->
     <div class="bg-container"></div>
 
+    <!-- Capa de estrellas -->
     <div class="sparkle-overlay">
         <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-        <div class="sparkle-overlay"><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div></div>
+        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
     </div>
 
     <div class="main-wrapper">
 
+        <!-- SECCIÓN 1 -->
         <section class="section-portada">
             <img src="DiscoB.svg" class="disco-bg-top" alt="Decoración Disco">
             <img src="15%20portada.svg" class="portada-img" alt="Mis XV Franchu">
@@ -232,11 +237,13 @@
         <img src="DiscoB.svg" class="disco-decor disco-left" alt="Decoración">
         <img src="DiscoB.svg" class="disco-decor disco-right" alt="Decoración">
 
+        <!-- SECCIÓN 2 -->
         <section>
             <img src="Texto%20Fecha%20y%20Lugar.svg" class="texto-svg" alt="Fecha y Lugar">
             <a href="https://maps.google.com" target="_blank" class="btn-capsule">Cómo Llegar</a>
         </section>
 
+        <!-- SECCIÓN 3 -->
         <section>
             <img src="Texto%20Confirmar.svg" class="texto-svg" alt="Confirmar">
             <a href="https://api.whatsapp.com/send?phone=543874411122&text=CONFIRMO%20ASISTENCIA%2015%20FRANCHU" target="_blank" class="btn-capsule">Confirmar Asistencia</a>
@@ -244,10 +251,12 @@
 
         <img src="Estrella%20grande.svg" class="divider-star" alt="Estrella">
 
+        <!-- SECCIÓN 4 -->
         <section>
             <img src="Texto%20DressCode.svg" class="texto-svg" alt="Dress Code">
         </section>
 
+        <!-- SECCIÓN 5 -->
         <section>
             <img src="Texto%20Regalo.svg" class="texto-svg" alt="Regalo">
             <button id="btn-alias" class="btn-capsule" onclick="copiarAlias()">Regalo / Copiar Alias</button>
@@ -255,6 +264,7 @@
 
         <img src="Estrella%20grande.svg" class="divider-star" alt="Estrella">
 
+        <!-- SECCIÓN 6 -->
         <section style="padding-bottom: 40px;">
             <img src="Texto%20Final.svg" class="texto-svg" alt="Final">
         </section>
