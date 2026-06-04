@@ -9,7 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
         /* ==========================================================================
-           1. RESET Y CAPAS DE FONDO
+           1. RESET Y CAPAS DE FONDO ESTÁTICO
            ========================================================================== */
         * {
             box-sizing: border-box;
@@ -36,9 +36,28 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            z-index: -2;
+            z-index: -3;
             pointer-events: none;
         }
+
+        /* ==========================================================================
+           1B. DECORACIONES DE DISCO ESTÁTICAS (Acompañamiento sutil)
+           ========================================================================== */
+        .disco-static-bg {
+            position: fixed;
+            width: 70vw;
+            max-width: 450px;
+            height: auto;
+            opacity: 0.04; /* Súper tenue para que pase desapercibido */
+            z-index: -2;   /* Por encima del fondo pero por debajo de las estrellas y contenido */
+            pointer-events: none;
+        }
+        
+        /* Posiciones estratégicas fijas */
+        .disco-bg-1 { top: -10%; left: -25%; transform: rotate(-15deg); }
+        .disco-bg-2 { top: 35%; right: -30%; transform: rotate(45deg); width: 80vw; }
+        .disco-bg-3 { bottom: 15%; left: -35%; transform: rotate(120deg); width: 75vw; }
+        .disco-bg-4 { bottom: -10%; right: -20%; transform: rotate(-60deg); }
 
         /* ==========================================================================
            2. CONSTELACIÓN DE ESTRELLAS
@@ -118,7 +137,7 @@
         }
 
         .section-portada {
-            padding-top: 80px; /* Duplicado el margen superior (antes era 40px) */
+            padding-top: 80px; 
             padding-bottom: 15px;
             overflow: hidden;
             width: 100%;
@@ -209,16 +228,6 @@
             margin-top: 150px; 
         }
 
-        .disco-decor {
-            position: absolute;
-            width: 60%;
-            opacity: 0.12;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .disco-left { left: -20%; top: 25%; }
-        .disco-right { right: -20%; top: 65%; }
-
         .texto-svg {
             width: 100%;
             max-width: 340px;
@@ -291,6 +300,11 @@
 
     <div class="bg-container"></div>
 
+    <img src="DiscoB.svg" class="disco-static-bg disco-bg-1" alt="">
+    <img src="DiscoB.svg" class="disco-static-bg disco-bg-2" alt="">
+    <img src="DiscoB.svg" class="disco-static-bg disco-bg-3" alt="">
+    <img src="DiscoB.svg" class="disco-static-bg disco-bg-4" alt="">
+
     <div class="sparkle-overlay">
         <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
         <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
@@ -329,9 +343,6 @@
             </div>
         </section>
 
-        <img src="DiscoB.svg" class="disco-decor disco-left" alt="Decoración">
-        <img src="DiscoB.svg" class="disco-decor disco-right" alt="Decoración">
-
         <section>
             <img src="Texto%20Fecha%20y%20Lugar.svg" class="texto-svg" alt="Fecha y Lugar">
             <a href="https://maps.google.com" target="_blank" class="btn-capsule">Cómo Llegar</a>
@@ -346,7 +357,7 @@
 
         <section class="bloque-informacion">
             <img src="Texto%20DressCode.svg" class="texto-svg" alt="Dress Code">
-            <img src="Texto%20Regalo.svg" class="texto-svg texto-regalo-svg espacio-dos-renglones" alt="Regalo">
+            <img src="Texto%20Regalo.svg?v=2" class="texto-svg texto-regalo-svg espacio-dos-renglones" alt="Regalo">
             <button id="btn-alias" class="btn-capsule" onclick="copiarAlias()">Regalo / Copiar Alias</button>
         </section>
 
@@ -360,7 +371,7 @@
 
     <script>
         function iniciarCuentaRegresiva() {
-            // Fecha objetivo actualizada exactamente al 15 de agosto a las 21:00 hs
+            // Fecha objetivo: 15 de agosto a las 21:00 hs
             const fechaObjetivo = new Date("August 15, 2026 21:00:00").getTime();
 
             const intervalo = setInterval(function() {
