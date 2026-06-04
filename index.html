@@ -41,7 +41,7 @@
         }
 
         /* ==========================================================================
-           2. CONSTELACIÓN DE ESTRELLAS (Intensificadas en zona alta y media)
+           2. CONSTELACIÓN DE ESTRELLAS
            ========================================================================== */
         .sparkle-overlay {
             position: fixed;
@@ -75,7 +75,7 @@
         .sparkle:nth-child(9)  { top: 32%;  left: 80%;  animation-delay: 0.3s; width: 30px; height: 30px; }
         .sparkle:nth-child(10) { top: 35%;  left: 12%;  animation-delay: 1.9s; width: 36px; height: 36px; }
 
-        /* Ráfaga de destellos: Zona Media / Fecha y Confirmación */
+        /* Ráfaga de destellos: Zona Media */
         .sparkle:nth-child(11) { top: 38%;  left: 45%;  animation-delay: 2.4s; width: 28px; height: 28px; }
         .sparkle:nth-child(12) { top: 41%;  left: 88%;  animation-delay: 0.7s; width: 34px; height: 34px; }
         .sparkle:nth-child(13) { top: 44%;  left: 20%;  animation-delay: 1.6s; width: 40px; height: 40px; }
@@ -87,7 +87,6 @@
         .sparkle:nth-child(19) { top: 62%;  left: 15%;  animation-delay: 0.4s; width: 28px; height: 28px; }
         .sparkle:nth-child(20) { top: 65%;  left: 52%;  animation-delay: 1.8s; width: 38px; height: 38px; }
 
-        /* Copias adicionales para densificar las zonas clave */
         .sparkle:nth-child(21) { top: 6%;   left: 40%;  animation-delay: 2.2s; width: 26px; height: 26px; }
         .sparkle:nth-child(22) { top: 11%;  left: 66%;  animation-delay: 0.9s; width: 32px; height: 32px; }
         .sparkle:nth-child(23) { top: 16%;  left: 12%;  animation-delay: 3.5s; width: 24px; height: 24px; }
@@ -113,7 +112,7 @@
         }
 
         /* ==========================================================================
-           3. ESTRUCTURA DE LA INVITACIÓN Y COMPRESIÓN DE ESPACIOS
+           3. ESTRUCTURA DE LA INVITACIÓN
            ========================================================================== */
         .main-wrapper {
             width: 100%;
@@ -133,7 +132,7 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 30px 24px;
+            padding: 100px 24px; /* Aumentado de 30px a 100px (+70px) para separar bloques intermedios */
             position: relative;
         }
 
@@ -171,8 +170,8 @@
            4. COMPONENTE: CUENTA REGRESIVA
            ========================================================================== */
         .section-countdown {
-            padding-top: 60px;     /* Ajustado exactamente a 60px libres */
-            padding-bottom: 50px;  /* Mantiene el doble solicitado abajo */
+            padding-top: 60px;     
+            padding-bottom: 120px; /* Aumentado de 50px a 120px (+70px) */
             font-family: 'Inter', sans-serif;
         }
 
@@ -210,8 +209,8 @@
 
         /* Bloque unificado para control tipográfico de 2 renglones */
         .bloque-informacion {
-            padding-top: 20px;
-            padding-bottom: 25px;
+            padding-top: 90px;    /* Aumentado de 20px a 90px (+70px) */
+            padding-bottom: 95px; /* Aumentado de 25px a 95px (+70px) */
         }
 
         .espacio-dos-renglones {
@@ -245,7 +244,7 @@
         .divider-star {
             width: 28px;
             height: auto;
-            margin: 15px 0;
+            margin: 50px 0; /* Aumentado el margen vertical (+70px globales de separación) */
             opacity: 0.85;
             position: relative;
             z-index: 2;
@@ -309,13 +308,11 @@
 
     <div class="main-wrapper">
 
-        <!-- SECCIÓN 1: PORTADA -->
         <section class="section-portada">
             <img src="DiscoB.svg" class="disco-bg-top" alt="Decoración Disco">
             <img src="15%20portada.svg" class="portada-img" alt="Mis XV Franchu">
         </section>
 
-        <!-- SECCIÓN: CUENTA REGRESIVA -->
         <section class="section-countdown">
             <div class="countdown-container">
                 <div class="countdown-block">
@@ -340,13 +337,11 @@
         <img src="DiscoB.svg" class="disco-decor disco-left" alt="Decoración">
         <img src="DiscoB.svg" class="disco-decor disco-right" alt="Decoración">
 
-        <!-- SECCIÓN 2: LUGAR -->
         <section>
             <img src="Texto%20Fecha%20y%20Lugar.svg" class="texto-svg" alt="Fecha y Lugar">
             <a href="https://maps.google.com" target="_blank" class="btn-capsule">Cómo Llegar</a>
         </section>
 
-        <!-- SECCIÓN 3: CONFIRMACIÓN -->
         <section>
             <img src="Texto%20Confirmar.svg" class="texto-svg" alt="Confirmar">
             <a href="https://api.whatsapp.com/send?phone=543874411122&text=CONFIRMO%20ASISTENCIA%2015%20FRANCHU" target="_blank" class="btn-capsule">Confirmar Asistencia</a>
@@ -354,7 +349,6 @@
 
         <img src="Estrella%20grande.svg" class="divider-star" alt="Estrella">
 
-        <!-- BLOQUE UNIFICADO DE INFORMACIÓN -->
         <section class="bloque-informacion">
             <img src="Texto%20DressCode.svg" class="texto-svg" alt="Dress Code" style="margin-bottom: 0;">
             <img src="Texto%20Regalo.svg" class="texto-svg texto-regalo-svg espacio-dos-renglones" alt="Regalo">
@@ -363,9 +357,7 @@
 
         <img src="Estrella%20grande.svg" class="divider-star" alt="Estrella">
 
-        <!-- SECCIÓN 5: FINAL -->
-        <section style="padding-bottom: 40px;">
-            <img src="Texto%20Final.svg" class="texto-svg" alt="Final">
+        <section style="padding-bottom: 110px;"> <img src="Texto%20Final.svg" class="texto-svg" alt="Final">
         </section>
 
     </div>
@@ -378,7 +370,6 @@
                 const ahora = new Date().getTime();
                 const distancia = fechaObjetivo - ahora;
 
-                // Variables internas renombradas para evitar colisiones con el DOM global
                 const faltaDias = Math.floor(distancia / (1000 * 60 * 60 * 24));
                 const faltaHoras = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const faltaMinutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
