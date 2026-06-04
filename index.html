@@ -36,12 +36,12 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            z-index: -4;
+            z-index: -5; /* Al fondo de todo */
             pointer-events: none;
         }
 
         /* ==========================================================================
-           1B. CAPA UNIFICADA PARA DISCOS (Opacidad aumentada)
+           1B. CAPA DE DISCOS OPTIMIZADA (Evita el bloqueo de pantalla)
            ========================================================================== */
         .disco-background-layer {
             position: fixed;
@@ -49,24 +49,25 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index: -3; /* Por encima del fondo general, por debajo de las estrellas */
+            z-index: -4; /* Por debajo de estrellas y del wrapper de contenido */
             pointer-events: none;
             overflow: hidden;
         }
 
         .disco-static-bg {
             position: absolute;
-            width: 65vw;
-            max-width: 400px;
+            width: 45vw; /* Reducido para que no se crucen en el centro */
+            max-width: 220px;
             height: auto;
-            opacity: 0.35; /* Incrementado al 35% para asegurar su total visibilidad */
+            opacity: 0.25; /* Contraste ideal visible */
+            mix-blend-mode: normal;
         }
         
-        /* Distribución orgánica por los bordes de la pantalla */
-        .disco-bg-1 { top: -8%; left: -20%; transform: rotate(-15deg); }
-        .disco-bg-2 { top: 38%; right: -25%; transform: rotate(45deg); width: 75vw; }
-        .disco-bg-3 { bottom: 20%; left: -30%; transform: rotate(120deg); width: 70vw; }
-        .disco-bg-4 { bottom: -8%; right: -15%; transform: rotate(-60deg); }
+        /* Posiciones perimetrales estrictas */
+        .disco-bg-1 { top: -5%; left: -15%; transform: rotate(-15deg); }
+        .disco-bg-2 { top: 40%; right: -18%; transform: rotate(45deg); width: 50vw; }
+        .disco-bg-3 { bottom: 25%; left: -20%; transform: rotate(120deg); width: 48vw; }
+        .disco-bg-4 { bottom: -5%; right: -10%; transform: rotate(-60deg); }
 
         /* ==========================================================================
            2. CONSTELACIÓN DE ESTRELLAS
@@ -77,22 +78,3 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index: -2;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .sparkle {
-            position: absolute;
-            background: #ffffff;
-            clip-path: polygon(50% 0%, 53% 47%, 100% 50%, 53% 53%, 50% 100%, 47% 53%, 0% 50%, 47% 47%);
-            transform: rotate(45deg) scale(0);
-            animation: twinkle 3.8s infinite ease-in-out;
-            mix-blend-mode: difference;
-        }
-
-        /* Ráfaga de destellos: Zona Portada */
-        .sparkle:nth-child(1)  { top: 4%;   left: 8%;   animation-delay: 0.0s; width: 32px; height: 32px; }
-        .sparkle:nth-child(2)  { top: 7%;   left: 78%;  animation-delay: 1.2s; width: 24px; height: 24px; }
-        .sparkle:nth-child(3)  { top: 12%;  left: 25%;  animation-delay: 0.5s; width: 38px; height: 38px; }
-        .sparkle:nth-child(4)  { top:
