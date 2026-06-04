@@ -168,11 +168,11 @@
         }
 
         /* ==========================================================================
-           4. COMPONENTE: CUENTA REGRESIVA (Con espaciados amplificados)
+           4. COMPONENTE: CUENTA REGRESIVA
            ========================================================================== */
         .section-countdown {
-            padding-top: 30px;     /* El triple del valor anterior (era 10px) */
-            padding-bottom: 50px;  /* El doble del valor anterior (era 25px) */
+            padding-top: 60px;     /* Ajustado exactamente a 60px libres */
+            padding-bottom: 50px;  /* Mantiene el doble solicitado abajo */
             font-family: 'Inter', sans-serif;
         }
 
@@ -315,7 +315,7 @@
             <img src="15%20portada.svg" class="portada-img" alt="Mis XV Franchu">
         </section>
 
-        <!-- SECCIÓN: CUENTA REGRESIVA (Con más aire) -->
+        <!-- SECCIÓN: CUENTA REGRESIVA -->
         <section class="section-countdown">
             <div class="countdown-container">
                 <div class="countdown-block">
@@ -378,15 +378,16 @@
                 const ahora = new Date().getTime();
                 const distancia = fechaObjetivo - ahora;
 
-                const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-                const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-                const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+                // Variables internas renombradas para evitar colisiones con el DOM global
+                const faltaDias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+                const faltaHoras = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const faltaMinutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+                const faltaSegundos = Math.floor((distancia % (1000 * 60)) / 1000);
 
-                document.getElementById("days").innerText = dias < 10 ? "0" + dias : dias;
-                document.getElementById("hours").innerText = horas < 10 ? "0" + horas : horas;
-                document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-                document.getElementById("seconds").innerText = segundos < 10 ? "0" + segundos : segundos;
+                document.getElementById("days").innerText = faltaDias < 10 ? "0" + faltaDias : faltaDias;
+                document.getElementById("hours").innerText = faltaHoras < 10 ? "0" + faltaHoras : faltaHoras;
+                document.getElementById("minutes").innerText = faltaMinutos < 10 ? "0" + faltaMinutos : faltaMinutos;
+                document.getElementById("seconds").innerText = faltaSegundos < 10 ? "0" + faltaSegundos : faltaSegundos;
 
                 if (distancia < 0) {
                     clearInterval(intervalo);
