@@ -49,7 +49,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index: -3; /* Por encima del fondo general, por debajo de las estrellas */
+            z-index: -3;
             pointer-events: none;
             overflow: hidden;
         }
@@ -59,10 +59,9 @@
             width: 65vw;
             max-width: 400px;
             height: auto;
-            opacity: 0.12; /* Ajustado al 12% para que sea visible pero sutil */
+            opacity: 0.12;
         }
         
-        /* Distribución orgánica por los bordes de la pantalla */
         .disco-bg-1 { top: -8%; left: -20%; transform: rotate(-15deg); }
         .disco-bg-2 { top: 38%; right: -25%; transform: rotate(45deg); width: 75vw; }
         .disco-bg-3 { bottom: 20%; left: -30%; transform: rotate(120deg); width: 70vw; }
@@ -76,58 +75,4 @@
             top: 0;
             left: 0;
             width: 100vw;
-            height: 100vh;
-            z-index: -2;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .sparkle {
-            position: absolute;
-            background: #ffffff;
-            clip-path: polygon(50% 0%, 53% 47%, 100% 50%, 53% 53%, 50% 100%, 47% 53%, 0% 50%, 47% 47%);
-            transform: rotate(45deg) scale(0);
-            animation: twinkle 3.8s infinite ease-in-out;
-            mix-blend-mode: difference;
-        }
-
-        /* Ráfaga de destellos: Zona Portada */
-        .sparkle:nth-child(1)  { top: 4%;   left: 8%;   animation-delay: 0.0s; width: 32px; height: 32px; }
-        .sparkle:nth-child(2)  { top: 7%;   left: 78%;  animation-delay: 1.2s; width: 24px; height: 24px; }
-        .sparkle:nth-child(3)  { top: 12%;  left: 25%;  animation-delay: 0.5s; width: 38px; height: 38px; }
-        .sparkle:nth-child(4)  { top: 15%;  left: 88%;  animation-delay: 2.0s; width: 28px; height: 28px; }
-        .sparkle:nth-child(5)  { top: 19%;  left: 50%;  animation-delay: 0.8s; width: 35px; height: 35px; }
-        .sparkle:nth-child(6)  { top: 22%;  left: 14%;  animation-delay: 2.7s; width: 22px; height: 22px; }
-        .sparkle:nth-child(7)  { top: 25%;  left: 65%;  animation-delay: 1.5s; width: 42px; height: 42px; }
-        .sparkle:nth-child(8)  { top: 29%;  left: 33%;  animation-delay: 3.1s; width: 26px; height: 26px; }
-        .sparkle:nth-child(9)  { top: 32%;  left: 80%;  animation-delay: 0.3s; width: 30px; height: 30px; }
-        .sparkle:nth-child(10) { top: 35%;  left: 12%;  animation-delay: 1.9s; width: 36px; height: 36px; }
-
-        /* Ráfaga de destellos: Zona Media */
-        .sparkle:nth-child(11) { top: 38%;  left: 45%;  animation-delay: 2.4s; width: 28px; height: 28px; }
-        .sparkle:nth-child(12) { top: 41%;  left: 88%;  animation-delay: 0.7s; width: 34px; height: 34px; }
-        .sparkle:nth-child(13) { top: 44%;  left: 20%;  animation-delay: 1.6s; width: 40px; height: 40px; }
-        .sparkle:nth-child(14) { top: 47%;  left: 60%;  animation-delay: 3.3s; width: 25px; height: 25px; }
-        .sparkle:nth-child(15) { top: 50%;  left: 5%;   animation-delay: 0.2s; width: 32px; height: 32px; }
-        .sparkle:nth-child(16) { top: 53%;  left: 76%;  animation-delay: 2.1s; width: 45px; height: 45px; }
-        .sparkle:nth-child(17) { top: 56%;  left: 30%;  animation-delay: 1.1s; width: 22px; height: 22px; }
-        .sparkle:nth-child(18) { top: 59%;  left: 92%;  animation-delay: 2.9s; width: 36px; height: 36px; }
-        .sparkle:nth-child(19) { top: 62%;  left: 15%;  animation-delay: 0.4s; width: 28px; height: 28px; }
-        .sparkle:nth-child(20) { top: 65%;  left: 52%;  animation-delay: 1.8s; width: 38px; height: 38px; }
-
-        @keyframes twinkle {
-            0%, 100% { transform: rotate(45deg) scale(0); opacity: 0; }
-            50% { transform: rotate(45deg) scale(2.2); opacity: 1; }
-        }
-
-        /* ==========================================================================
-           3. ESTRUCTURA DE LA INVITACIÓN
-           ========================================================================== */
-        .main-wrapper {
-            width: 100%;
-            max-width: 450px;
-            margin: 0 auto;
-            position: relative;
-            padding-bottom: 60px;
-            display: flex;
-            flex
+            height: 10
