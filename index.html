@@ -9,7 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
         /* ==========================================================================
-           1. RESET Y CAPAS DE FONDO ESTÁTICO (CORREGIDO)
+           1. RESET Y FONDO BASE SEGURO (Evita pantallas blancas)
            ========================================================================== */
         * {
             box-sizing: border-box;
@@ -20,27 +20,18 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #e2e5e9; /* Cambiado a gris claro neutro para evitar pantallas azules */
-            overflow-x: hidden;
-            color: #1b2e4b;
-        }
-
-        .bg-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            background-color: #1b2e4b; /* Fondo azul oscuro de seguridad permanente */
             background-image: url(fondofondo.jpg);
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            z-index: -5; /* Fondo absoluto */
-            pointer-events: none;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            color: #ffffff; /* Textos en blanco para máximo contraste */
         }
 
         /* ==========================================================================
-           1B. CAPA DE DISCOS (Posiciones fijas seguras en las esquinas)
+           1B. ESFERAS DISCO DE FONDO (Ubicaciones fijas en los bordes)
            ========================================================================== */
         .disco-background-layer {
             position: fixed;
@@ -48,27 +39,27 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index: -4; 
+            z-index: 1; /* Por detrás del contenido principal */
             pointer-events: none;
             overflow: hidden;
         }
 
         .disco-static-bg {
             position: absolute;
-            width: 45vw; 
-            max-width: 200px;
+            width: 42vw; 
+            max-width: 180px;
             height: auto;
-            opacity: 0.25; /* Visible y sutil */
+            opacity: 0.25; /* Opacidad equilibrada y visible */
         }
         
-        /* Ubicaciones perimetrales para evitar que se junten en el centro */
-        .disco-bg-1 { top: -5%; left: -12%; transform: rotate(-15deg); }
-        .disco-bg-2 { top: 42%; right: -15%; transform: rotate(45deg); width: 48vw; }
-        .disco-bg-3 { bottom: 22%; left: -15%; transform: rotate(120deg); width: 46vw; }
-        .disco-bg-4 { bottom: -5%; right: -8%; transform: rotate(-60deg); }
+        /* Posiciones perimetrales que no obstruyen el centro */
+        .disco-bg-1 { top: -4%; left: -10%; transform: rotate(-15deg); }
+        .disco-bg-2 { top: 42%; right: -12%; transform: rotate(45deg); width: 45vw; }
+        .disco-bg-3 { bottom: 25%; left: -12%; transform: rotate(120deg); width: 44vw; }
+        .disco-bg-4 { bottom: -4%; right: -6%; transform: rotate(-60deg); }
 
         /* ==========================================================================
-           2. CONSTELACIÓN DE ESTRELLAS (CORREGIDA SIN MIX-BLEND-MODE)
+           2. CONSTELACIÓN DE ESTRELLAS CONTRASTADAS
            ========================================================================== */
         .sparkle-overlay {
             position: fixed;
@@ -76,4 +67,12 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index
+            z-index: 2; 
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .sparkle {
+            position: absolute;
+            background: #ffffff;
+            clip-path: polygon(50% 0%, 53% 47%, 100% 50%, 53% 53%, 50% 100%,
