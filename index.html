@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Mis XV - Franchu</title>
     <style>
+        /* Importación de tipografía solicitada para la cuenta regresiva */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
         /* ==========================================================================
            1. RESET Y CAPAS DE FONDO
            ========================================================================== */
@@ -29,7 +32,6 @@
             width: 100vw;
             height: 100vh;
             background-color: #e2e5e9;
-            /* Se optimizó la URL para evitar conflictos de lectura en servidores de producción */
             background-image: url(fondofondo.jpg);
             background-size: cover;
             background-position: center;
@@ -166,6 +168,47 @@
             transform: none;
         }
 
+        /* ==========================================================================
+           4. COMPONENTE: CUENTA REGRESIVA (Tipografía Inter)
+           ========================================================================== */
+        .section-countdown {
+            padding-top: 10px;
+            padding-bottom: 25px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            width: 100%;
+            max-width: 340px;
+        }
+
+        .countdown-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .countdown-number {
+            font-size: 36px;
+            font-weight: 300; /* Light weight para un look sofisticado */
+            letter-spacing: -0.5px;
+            color: #1b2e4b;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .countdown-label {
+            font-size: 10px;
+            font-weight: 600; /* Semi-bold para legibilidad en textos chicos */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(27, 46, 75, 0.6);
+        }
+
         /* Bloque unificado para control tipográfico de 2 renglones */
         .bloque-informacion {
             padding-top: 20px;
@@ -273,6 +316,27 @@
             <img src="15%20portada.svg" class="portada-img" alt="Mis XV Franchu">
         </section>
 
+        <section class="section-countdown">
+            <div class="countdown-container">
+                <div class="countdown-block">
+                    <span id="days" class="countdown-number">00</span>
+                    <span class="countdown-label">Días</span>
+                </div>
+                <div class="countdown-block">
+                    <span id="hours" class="countdown-number">00</span>
+                    <span class="countdown-label">Hs</span>
+                </div>
+                <div class="countdown-block">
+                    <span id="minutes" class="countdown-number">00</span>
+                    <span class="countdown-label">Min</span>
+                </div>
+                <div class="countdown-block">
+                    <span id="seconds" class="countdown-number">00</span>
+                    <span class="countdown-label">Seg</span>
+                </div>
+            </div>
+        </section>
+
         <img src="DiscoB.svg" class="disco-decor disco-left" alt="Decoración">
         <img src="DiscoB.svg" class="disco-decor disco-right" alt="Decoración">
 
@@ -288,7 +352,6 @@
 
         <img src="Estrella%20grande.svg" class="divider-star" alt="Estrella">
 
-        <!-- BLOQUE UNIFICADO DE INFORMACIÓN -->
         <section class="bloque-informacion">
             <img src="Texto%20DressCode.svg" class="texto-svg" alt="Dress Code" style="margin-bottom: 0;">
             <img src="Texto%20Regalo.svg" class="texto-svg texto-regalo-svg espacio-dos-renglones" alt="Regalo">
@@ -304,6 +367,41 @@
     </div>
 
     <script>
+        /* LÓGICA DE LA CUENTA REGRESIVA: Configurada para el 15 de Agosto a las 21:00 hs */
+        function iniciarCuentaRegresiva() {
+            // Fecha objetivo en milisegundos (Año actual dinámico o fijo según se requiera, seteado para el evento)
+            const fechaObjetivo = new Date("August 15, 2026 21:00:00").getTime();
+
+            const intervalo = setInterval(function() {
+                const ahora = new Date().getTime();
+                const distancia = fechaObjetivo - ahora;
+
+                // Cálculos de tiempo para días, horas, minutos y segundos
+                const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+                // Render en el HTML asegurando el formato clásico de dos dígitos (00)
+                document.getElementById("days").innerText = dias < 10 ? "0" + dias : dias;
+                document.getElementById("hours").innerText = horas < 10 ? "0" + horas : horas;
+                document.getElementById("minutes").innerText = minutos < 10 ? "0" + minutos : minutos;
+                document.getElementById("seconds").innerText = segundos < 10 ? "0" + segundos : segundos;
+
+                // Si la cuenta regresiva llega a cero, frena el contador y limpia los campos
+                if (distancia < 0) {
+                    clearInterval(intervalo);
+                    document.getElementById("days").innerText = "00";
+                    document.getElementById("hours").innerText = "00";
+                    document.getElementById("minutes").innerText = "00";
+                    document.getElementById("seconds").innerText = "00";
+                }
+            }, 1000);
+        }
+
+        // Ejecutar contador inmediatamente al cargar la web
+        iniciarCuentaRegresiva();
+
         function copiarAlias() {
             const aliasTexto = "alias.prueba";
             const boton = document.getElementById("btn-alias");
