@@ -36,28 +36,37 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            z-index: -3;
+            z-index: -4;
             pointer-events: none;
         }
 
         /* ==========================================================================
-           1B. DECORACIONES DE DISCO ESTÁTICAS (Acompañamiento sutil)
+           1B. NUEVA CAPA UNIFICADA PARA DISCOS (Garantiza visibilidad en móviles)
            ========================================================================== */
-        .disco-static-bg {
+        .disco-background-layer {
             position: fixed;
-            width: 70vw;
-            max-width: 450px;
-            height: auto;
-            opacity: 0.04; /* Súper tenue para que pase desapercibido */
-            z-index: -2;   /* Por encima del fondo pero por debajo de las estrellas y contenido */
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -3; /* Por encima del fondo general, por debajo de las estrellas */
             pointer-events: none;
+            overflow: hidden;
+        }
+
+        .disco-static-bg {
+            position: absolute;
+            width: 65vw;
+            max-width: 400px;
+            height: auto;
+            opacity: 0.12; /* Ajustado al 12% para que sea visible pero sutil */
         }
         
-        /* Posiciones estratégicas fijas */
-        .disco-bg-1 { top: -10%; left: -25%; transform: rotate(-15deg); }
-        .disco-bg-2 { top: 35%; right: -30%; transform: rotate(45deg); width: 80vw; }
-        .disco-bg-3 { bottom: 15%; left: -35%; transform: rotate(120deg); width: 75vw; }
-        .disco-bg-4 { bottom: -10%; right: -20%; transform: rotate(-60deg); }
+        /* Distribución orgánica por los bordes de la pantalla */
+        .disco-bg-1 { top: -8%; left: -20%; transform: rotate(-15deg); }
+        .disco-bg-2 { top: 38%; right: -25%; transform: rotate(45deg); width: 75vw; }
+        .disco-bg-3 { bottom: 20%; left: -30%; transform: rotate(120deg); width: 70vw; }
+        .disco-bg-4 { bottom: -8%; right: -15%; transform: rotate(-60deg); }
 
         /* ==========================================================================
            2. CONSTELACIÓN DE ESTRELLAS
@@ -68,7 +77,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index: -1;
+            z-index: -2;
             pointer-events: none;
             overflow: hidden;
         }
@@ -223,7 +232,7 @@
             padding-bottom: 95px; 
         }
 
-        /* Separación incrementada sustancialmente entre DressCode y Regalo */
+        /* Separación entre DressCode y Regalo */
         .espacio-dos-renglones {
             margin-top: 150px; 
         }
@@ -300,10 +309,12 @@
 
     <div class="bg-container"></div>
 
-    <img src="DiscoB.svg" class="disco-static-bg disco-bg-1" alt="">
-    <img src="DiscoB.svg" class="disco-static-bg disco-bg-2" alt="">
-    <img src="DiscoB.svg" class="disco-static-bg disco-bg-3" alt="">
-    <img src="DiscoB.svg" class="disco-static-bg disco-bg-4" alt="">
+    <div class="disco-background-layer">
+        <img src="DiscoB.svg" class="disco-static-bg disco-bg-1" alt="">
+        <img src="DiscoB.svg" class="disco-static-bg disco-bg-2" alt="">
+        <img src="DiscoB.svg" class="disco-static-bg disco-bg-3" alt="">
+        <img src="DiscoB.svg" class="disco-static-bg disco-bg-4" alt="">
+    </div>
 
     <div class="sparkle-overlay">
         <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
@@ -371,7 +382,6 @@
 
     <script>
         function iniciarCuentaRegresiva() {
-            // Fecha objetivo: 15 de agosto a las 21:00 hs
             const fechaObjetivo = new Date("August 15, 2026 21:00:00").getTime();
 
             const intervalo = setInterval(function() {
