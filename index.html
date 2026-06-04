@@ -87,25 +87,6 @@
         .sparkle:nth-child(19) { top: 62%;  left: 15%;  animation-delay: 0.4s; width: 28px; height: 28px; }
         .sparkle:nth-child(20) { top: 65%;  left: 52%;  animation-delay: 1.8s; width: 38px; height: 38px; }
 
-        .sparkle:nth-child(21) { top: 6%;   left: 40%;  animation-delay: 2.2s; width: 26px; height: 26px; }
-        .sparkle:nth-child(22) { top: 11%;  left: 66%;  animation-delay: 0.9s; width: 32px; height: 32px; }
-        .sparkle:nth-child(23) { top: 16%;  left: 12%;  animation-delay: 3.5s; width: 24px; height: 24px; }
-        .sparkle:nth-child(24) { top: 24%;  left: 85%;  animation-delay: 1.4s; width: 35px; height: 35px; }
-        .sparkle:nth-child(25) { top: 30%;  left: 55%;  animation-delay: 2.6s; width: 28px; height: 28px; }
-        .sparkle:nth-child(26) { top: 37%;  left: 28%;  animation-delay: 0.1s; width: 33px; height: 33px; }
-        .sparkle:nth-child(27) { top: 43%;  left: 72%;  animation-delay: 1.7s; width: 22px; height: 22px; }
-        .sparkle:nth-child(28) { top: 49%;  left: 42%;  animation-delay: 3.0s; width: 36px; height: 36px; }
-        .sparkle:nth-child(29) { top: 55%;  left: 84%;  animation-delay: 0.6s; width: 30px; height: 30px; }
-        .sparkle:nth-child(30) { top: 61%;  left: 68%;  animation-delay: 2.3s; width: 25px; height: 25px; }
-
-        /* Zona Inferior */
-        .sparkle:nth-child(31) { top: 70%;  left: 28%;  animation-delay: 1.3s; width: 26px; height: 26px; }
-        .sparkle:nth-child(32) { top: 75%;  left: 82%;  animation-delay: 3.2s; width: 34px; height: 34px; }
-        .sparkle:nth-child(33) { top: 80%;  left: 8%;   animation-delay: 0.5s; width: 22px; height: 22px; }
-        .sparkle:nth-child(34) { top: 85%;  left: 64%;  animation-delay: 2.5s; width: 38px; height: 38px; }
-        .sparkle:nth-child(35) { top: 90%;  left: 40%;  animation-delay: 1.1s; width: 28px; height: 28px; }
-        .sparkle:nth-child(36) { top: 94%;  left: 86%;  animation-delay: 2.8s; width: 35px; height: 35px; }
-
         @keyframes twinkle {
             0%, 100% { transform: rotate(45deg) scale(0); opacity: 0; }
             50% { transform: rotate(45deg) scale(2.2); opacity: 1; }
@@ -132,7 +113,7 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 100px 24px; /* Aumentado de 30px a 100px (+70px) para separar bloques intermedios */
+            padding: 100px 24px; 
             position: relative;
         }
 
@@ -141,7 +122,7 @@
             padding-bottom: 15px;
             overflow: hidden;
             width: 100%;
-            min-height: 380px;
+            min-height: 460px; 
         }
 
         .disco-bg-top {
@@ -171,14 +152,15 @@
            ========================================================================== */
         .section-countdown {
             padding-top: 60px;     
-            padding-bottom: 120px; /* Aumentado de 50px a 120px (+70px) */
+            padding-bottom: 120px; 
             font-family: 'Inter', sans-serif;
         }
 
         .countdown-container {
             display: flex;
             justify-content: center;
-            gap: 16px;
+            align-items: baseline;
+            gap: 8px; 
             width: 100%;
             max-width: 340px;
         }
@@ -187,34 +169,44 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            flex: 1;
+            min-width: 45px;
         }
 
         .countdown-number {
-            font-size: 36px;
+            font-size: 34px;
             font-weight: 300; 
             letter-spacing: -0.5px;
             color: #1b2e4b;
             line-height: 1;
-            margin-bottom: 4px;
+        }
+
+        .countdown-divider {
+            font-size: 28px;
+            font-weight: 300;
+            color: rgba(27, 46, 75, 0.4);
+            line-height: 1;
+            align-self: center;
+            margin-bottom: 14px; 
         }
 
         .countdown-label {
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 600; 
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: rgba(27, 46, 75, 0.6);
+            letter-spacing: 0.5px;
+            color: rgba(27, 46, 75, 0.5);
+            margin-top: 6px;
         }
 
         /* Bloque unificado para control tipográfico de 2 renglones */
         .bloque-informacion {
-            padding-top: 90px;    /* Aumentado de 20px a 90px (+70px) */
-            padding-bottom: 95px; /* Aumentado de 25px a 95px (+70px) */
+            padding-top: 90px;    
+            padding-bottom: 95px; 
         }
 
+        /* Separación específica entre DressCode y Regalo (+50px aplicados sobre el margen previo) */
         .espacio-dos-renglones {
-            margin-top: 2.5em; 
+            margin-top: 90px; 
         }
 
         .disco-decor {
@@ -231,7 +223,7 @@
             width: 100%;
             max-width: 340px;
             height: auto;
-            margin-bottom: 22px;
+            margin-bottom: 0; 
             position: relative;
             z-index: 2;
             display: block;
@@ -244,7 +236,7 @@
         .divider-star {
             width: 28px;
             height: auto;
-            margin: 50px 0; /* Aumentado el margen vertical (+70px globales de separación) */
+            margin: 50px 0; 
             opacity: 0.85;
             position: relative;
             z-index: 2;
@@ -256,11 +248,15 @@
             50% { transform: scale(1.15); opacity: 1; }
         }
 
+        /* ==========================================================================
+           5. BOTONES
+           ========================================================================== */
         .btn-capsule {
             display: inline-block;
             width: 85%;
             max-width: 290px;
             padding: 15px 24px;
+            margin-top: 52px; 
             background-color: #1b2e4b;
             color: #ffffff;
             font-size: 14px;
@@ -277,7 +273,6 @@
             outline: none;
             position: relative;
             z-index: 3;
-            margin-bottom: 10px;
         }
 
         .btn-capsule:active {
@@ -301,32 +296,34 @@
         <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
         <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
         <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
     </div>
 
     <div class="main-wrapper">
 
+        <!-- SECCIÓN 1: PORTADA -->
         <section class="section-portada">
             <img src="DiscoB.svg" class="disco-bg-top" alt="Decoración Disco">
             <img src="15%20portada.svg" class="portada-img" alt="Mis XV Franchu">
         </section>
 
+        <!-- SECCIÓN: CUENTA REGRESIVA -->
         <section class="section-countdown">
             <div class="countdown-container">
                 <div class="countdown-block">
                     <span id="days" class="countdown-number">00</span>
                     <span class="countdown-label">Días</span>
                 </div>
+                <div class="countdown-divider">:</div>
                 <div class="countdown-block">
                     <span id="hours" class="countdown-number">00</span>
                     <span class="countdown-label">Hs</span>
                 </div>
+                <div class="countdown-divider">:</div>
                 <div class="countdown-block">
                     <span id="minutes" class="countdown-number">00</span>
                     <span class="countdown-label">Min</span>
                 </div>
+                <div class="countdown-divider">:</div>
                 <div class="countdown-block">
                     <span id="seconds" class="countdown-number">00</span>
                     <span class="countdown-label">Seg</span>
@@ -337,11 +334,13 @@
         <img src="DiscoB.svg" class="disco-decor disco-left" alt="Decoración">
         <img src="DiscoB.svg" class="disco-decor disco-right" alt="Decoración">
 
+        <!-- SECCIÓN 2: LUGAR -->
         <section>
             <img src="Texto%20Fecha%20y%20Lugar.svg" class="texto-svg" alt="Fecha y Lugar">
             <a href="https://maps.google.com" target="_blank" class="btn-capsule">Cómo Llegar</a>
         </section>
 
+        <!-- SECCIÓN 3: CONFIRMACIÓN -->
         <section>
             <img src="Texto%20Confirmar.svg" class="texto-svg" alt="Confirmar">
             <a href="https://api.whatsapp.com/send?phone=543874411122&text=CONFIRMO%20ASISTENCIA%2015%20FRANCHU" target="_blank" class="btn-capsule">Confirmar Asistencia</a>
@@ -349,15 +348,18 @@
 
         <img src="Estrella%20grande.svg" class="divider-star" alt="Estrella">
 
+        <!-- BLOQUE UNIFICADO DE INFORMACIÓN -->
         <section class="bloque-informacion">
-            <img src="Texto%20DressCode.svg" class="texto-svg" alt="Dress Code" style="margin-bottom: 0;">
+            <img src="Texto%20DressCode.svg" class="texto-svg" alt="Dress Code">
             <img src="Texto%20Regalo.svg" class="texto-svg texto-regalo-svg espacio-dos-renglones" alt="Regalo">
             <button id="btn-alias" class="btn-capsule" onclick="copiarAlias()">Regalo / Copiar Alias</button>
         </section>
 
         <img src="Estrella%20grande.svg" class="divider-star" alt="Estrella">
 
-        <section style="padding-bottom: 110px;"> <img src="Texto%20Final.svg" class="texto-svg" alt="Final">
+        <!-- SECCIÓN 5: FINAL -->
+        <section style="padding-bottom: 110px;">
+            <img src="Texto%20Final.svg" class="texto-svg" alt="Final">
         </section>
 
     </div>
@@ -376,7 +378,7 @@
                 const faltaSegundos = Math.floor((distancia % (1000 * 60)) / 1000);
 
                 document.getElementById("days").innerText = faltaDias < 10 ? "0" + faltaDias : faltaDias;
-                document.getElementById("hours").innerText = faltaHoras < 10 ? "0" + faltaHoras : faltaHoras;
+                document.getElementById("hours").innerText = ...faltaHoras < 10 ? "0" + faltaHoras : faltaHoras;
                 document.getElementById("minutes").innerText = faltaMinutos < 10 ? "0" + faltaMinutos : faltaMinutos;
                 document.getElementById("seconds").innerText = faltaSegundos < 10 ? "0" + faltaSegundos : faltaSegundos;
 
